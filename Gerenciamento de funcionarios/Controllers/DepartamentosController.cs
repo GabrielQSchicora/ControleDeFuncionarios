@@ -34,7 +34,7 @@ namespace Gerenciamento_de_funcionarios.Controllers
             }
 
             var departamento = await _context.Departamento
-                .Include(d => d.Responsavel)
+                .Include(d => d.Responsavel).Include(d => d.Funcionarios)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (departamento == null)
             {
